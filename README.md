@@ -1,5 +1,6 @@
 # GameHub
 <!-- pic -->
+## edit readme later ^^
 ## Description
 
 The GameHub Platform is 
