@@ -1,0 +1,26 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title show img
+    body
+        each demand in demands
+            tr
+                //- td= demand.sender
+                //- td= demand.receiver
+                //- td= demand.date
+                //- td= demand.money
+                //- td= demand.userName
+            if demand.id === selectedDemand.id
+                tr
+                    td(colspan="5")
+                        //- Check if imageUrl is available
+                        if imageUrl
+                            img(src=imageUrl, alt="Demand Image", height="300", width="500")
+                        else
+                            p No image available
+            else
+                //- Render an empty row for other demands
+                tr
+                td(colspan="5")

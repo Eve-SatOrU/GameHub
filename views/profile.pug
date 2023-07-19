@@ -1,0 +1,175 @@
+meta(charset="UTF-8")
+meta(http-equiv="X-UA-Compatible", content="IE=edge")
+meta(name="viewport", content="width=device-width,initial-scale=1")
+//
+   
+      - primary meta tags
+    
+title Gaming
+meta(name="title", content="Unigine - Epic Games Made For True Gamers!")
+meta(name="description", content="This is an esports and gaming html template made by codewithsadee")
+//
+   
+      - favicon
+    
+//- link(rel="shortcut icon", href="./favicon.svg", type="image/svg+xml")
+//
+   
+      - google font link
+    
+link(rel="preconnect", href="https://fonts.googleapis.com")
+link(rel="preconnect", href="https://fonts.gstatic.com", crossorigin)
+link(href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700&family=Work+Sans:wght@600&display=swap", rel="stylesheet")
+//
+   
+      - custom css link
+    
+link(rel="stylesheet", href="../css/style.css")
+//
+   
+      - preload images
+    
+link(rel="preload", as="image", href="../images/hero-banner.png")
+link(rel="preload", as="image", href="../images/hero-banner-bg.png")
+//
+   
+      - #HEADER
+    
+header.header.active(data-header)
+  .container
+    a.logo(href="/")
+      //- img(src="../images/logo1.png", width="11", height="53", alt="unigine home")
+    nav.navbar(data-navbar)
+      ul.navbar-list
+        li.navbar-item
+          a.navbar-link(href="/", data-nav-link) home
+        li.navbar-item
+          a.navbar-link(href="/packages", data-nav-link) packages
+        li.navbar-item
+          a.navbar-link(href="/contact", data-nav-link) contact
+    if user
+      li.navbar-item
+        a.navbar-link(href=`/transaction/${user.id}`, data-nav-link) Transaction
+      a.navbar-link(href=`/notification/${user.id}`, data-nav-link) 
+        img(src="../images/noti.png", alt="notification", width="30", height="53")
+      div3
+        p
+          | #{user.wallet} DZ
+          //- img(src="../images/dollar1.png", alt="money", width="30", height="53")
+      li.navbar-item
+        a.navbar-link(href=`/profile/${user.id}`, data-nav-link) profile
+      a.btn(href="/logout", data-btn) logout 
+    else 
+      //- a.btn(href="/register", data-btn) register or login
+      li.navbar-item.navbar-dropdown
+        a.navbar-link Account
+        ul.dropdown-menu
+          li
+            a(href="/login") Login
+          li
+            a(href="/register") Register
+    button.nav-toggle-btn(aria-label="toggle menu", data-nav-toggler)
+      span.line.line-1
+      span.line.line-2
+      span.line.line-3
+// ----------------account-pabe-------------
+main
+article            
+  section.section.upcoming#packages(aria-labelledby="upcoming-label")
+    .container
+    .from-register  
+        h2 profile
+        img(src="../images/download1.png", alt="notification", width="200", height="100")
+        label.label() Full Name
+        .box=user.userName
+        label.label() email
+        .box=user.email
+        label.label() phone
+        .box=user.phone
+        label.label() wallet
+        .box=user.wallet
+        br
+
+    
+//-       //- - #FOOTER
+    
+footer.footer
+  .section.footer-top
+    .container
+      .footer-brand
+        //- a.logo(href="#")
+          img(src="../images/logo1.png", width="150", height="73", loading="lazy", alt="Unigine logo")
+        p.footer-text.
+          
+          Our success in creating business solutions is due in large part to our talented and highly committed team.
+          
+        ul.social-list
+          li
+            a.social-link(href="#")
+              ion-icon(name="logo-facebook")
+          li
+            a.social-link(href="#")
+              ion-icon(name="logo-twitter")
+          li
+            a.social-link(href="https://www.insatgram.com/coding.stella", target="_blank")
+              ion-icon(name="logo-instagram")
+          li
+            a.social-link(href="#")
+              ion-icon(name="logo-youtube")
+      .footer-list
+        p.title.footer-list-title.has-after Usefull Links
+        ul
+          li
+            a.footer-link(href="#") Help Center
+          li
+            a.footer-link(href="#") Privacy and Policy
+          li
+            a.footer-link(href="#") Terms of Use
+          li
+            a.footer-link(href="#") Contact Us
+      .footer-list
+        p.title.footer-list-title.has-after Contact Us
+        .contact-item
+          span.span Location:
+          address.contact-link.
+            
+            setif 
+            
+        .contact-item
+          span.span Join Us:
+          a.contact-link(href="mailto:Info@gamehive.com") Info@gaming.com
+        .contact-item
+          span.span Phone:
+          a.contact-link(href="tel:+12345678910") +1 (234) 567-8910
+      .footer-list
+        p.title.footer-list-title.has-after Newsletter Signup
+        form.footer-form(action="./index.html", method="get")
+          input.input-field(type="email", name="email_address", required, placeholder="Your Email", autocomplete="off")
+          button.btn(type="submit", data-btn) Subscribe Now        
+//
+   
+      - #BACK TO TOP
+    
+a.back-top-btn(href="#top", aria-label="back to top", data-back-top-btn)
+  ion-icon(name="arrow-up-outline", aria-hidden="true")
+//
+   
+      - #CUSTOM CURSOR
+    
+.cursor(data-cursor)
+//
+   
+      - custom js link
+    
+script(src="../js/script.js")
+//
+   
+      - ionicon link
+    
+script(type="module", src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js")
+script(nomodule, src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js")
+
+
+
+
+

@@ -1,0 +1,71 @@
+meta(charset="UTF-8")
+meta(http-equiv="X-UA-Compatible", content="IE=edge")
+meta(name="viewport", content="width=device-width,initial-scale=1")
+//
+   
+      - primary meta tags
+    
+title Gaming
+meta(name="title", content="Unigine - Epic Games Made For True Gamers!")
+meta(name="description", content="This is an esports and gaming html template made by codewithsadee")
+//
+   
+      - favicon
+    
+//- link(rel="shortcut icon", href="./favicon.svg", type="image/svg+xml")
+//
+   
+      - google font link
+    
+link(rel="preconnect", href="https://fonts.googleapis.com")
+link(rel="preconnect", href="https://fonts.gstatic.com", crossorigin)
+link(href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700&family=Work+Sans:wght@600&display=swap", rel="stylesheet")
+//
+   
+      - custom css link
+    
+link(rel="stylesheet", href="../css/style.css")
+link(rel="stylesheet", href="../css/demand.css")
+//
+   
+      - preload images
+    
+link(rel="preload", as="image", href="../images/hero-banner.png")
+link(rel="preload", as="image", href="../images/hero-banner-bg.png")
+//
+   
+      - #HEADER
+    
+header.header.active(data-header)
+  .container
+    a.logo(href="/")
+      //- img(src="../images/logo1.png", width="11", height="53", alt="unigine home")
+    nav.navbar(data-navbar)
+      ul.navbar-list
+        li.navbar-item
+          a.navbar-link(href="/", data-nav-link) home
+        li.navbar-item
+          a.navbar-link(href="#news", data-nav-link) news
+        li.navbar-item
+          a.navbar-link(href="/packages", data-nav-link) packages
+        li.navbar-item
+          a.navbar-link(href="/contact", data-nav-link) contact
+    if user
+      a.navbar-link(href="/demand", data-nav-link) demand
+      p= user.wallet
+      img(src="../images/dollar1.png", alt="money", width="30", height="53",)
+      a.btn(href="/logout", data-btn) logout 
+    else 
+      a.btn(href="/register", data-btn) register now
+    button.nav-toggle-btn(aria-label="toggle menu", data-nav-toggler)
+      span.line.line-1
+      span.line.line-2
+      span.line.line-3
+body 
+    main
+    article            
+        section.section.upcoming#packages(aria-labelledby="upcoming-label")
+        .container
+            h1 Your payment was successful
+            p Thank you for your purchase. We will contact you shortly.
+            a.purple(href="/demand") Go back to demand page

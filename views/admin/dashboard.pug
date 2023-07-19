@@ -1,0 +1,213 @@
+meta(charset="UTF-8")
+meta(name="viewport", content="width=device-width,initial-scale=1")
+//  Boxicons 
+link(href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css", rel="stylesheet")
+//  My CSS 
+link(rel="stylesheet", href="/css/dashboard.css")
+title Dashboard
+//  SIDEBAR 
+section#sidebar
+  a.brand(href="#")
+    span.text gaming 
+  ul.side-menu.top
+    li.active
+      a(href="/admin/dashboard")
+        i.bx.bxs-dashboard
+        span.text Dashboard
+    li
+      a(href="/admin/createPackage")
+        i.bx.bxs-doughnut-chart
+        span.text create package 
+  ul.side-menu
+    li
+      a(href="/admin/profile")
+        i.bx.bxs-cog
+        span.text Profile
+    li
+      a.logout(href="/admin/logout")
+        i.bx.bxs-log-out-circle
+        span.text logout
+//  SIDEBAR 
+//  CONTENT 
+section#content
+  //  NAVBAR 
+  nav
+    i.bx.bx-menu
+    form(action="#")
+      .form-input
+        input(type="search", placeholder="Search...")
+        button.search-btn(type="submit")
+          i.bx.bx-search
+    input#switch-mode(type="checkbox", hidden)
+    label.switch-mode(for="switch-mode")
+    a.notification(href="#")
+      i.bx.bxs-bell
+      span.num 8
+    a.profile(href="#")
+      img(src="../images/adming.svg")
+  //  NAVBAR 
+  //  MAIN 
+  main
+    .head-title
+      .left
+        h1 Dashboard
+        ul.breadcrumb
+          li
+            a(href="#") Dashboard
+          li
+            i.bx.bx-chevron-right
+          li
+            a.active(href="#") home
+      a.btn-download(href="#")
+        i.bx.bxs-cloud-download
+        span.text download PDF
+    ul.box-info
+      li
+        i.bx.bxs-calendar-check
+        span.text
+          h3 51
+          p user
+      li
+        i.bx.bxs-group
+        span.text
+          h3 4
+          p notification
+      li
+        i.bx.bxs-dollar-circle
+        span.text
+          h3 98
+          p package
+    .table-data
+      .order
+        .head
+          h3 users
+          i.bx.bx-search
+          i.bx.bx-filter
+        table
+          thead
+            tr
+              th name
+              th date
+              th wallet
+              th Actions
+          tbody
+            each user in users
+              tr
+                td
+                  img(src="../images/girl.svg")
+                  p= user.userName
+                td= user.createdAt.toLocaleDateString('fr-FR')
+                td
+                  p=user.wallet
+                td
+                  form(action=`/admin/delete-user/${user.id}`, method='post')
+                    button.btn(type='submit' class='btn btn-danger') Delete
+             
+    .table-data
+      .order
+        .head
+          h3  packages
+          i.bx.bx-search
+          i.bx.bx-filter
+        table
+          thead
+            tr
+              th package name
+              th description
+              th price           
+              th image
+              th action
+          tbody
+              tr
+                td
+                  each package in packages
+                    tr
+                      td
+                        p= package.name 
+                    th
+                      td
+                        p= package.description
+                    th
+                      td
+                        p= package.price 
+                    th    
+                      td
+                        p= package.image
+                      td 
+                        form(action=`/admin/delete-package/${package.id}`, method='post')
+                          button.btn(type='submit' class='btn btn-danger') Delete
+    .table-data
+      .order
+        .head
+          h3  demands
+          i.bx.bx-search
+          i.bx.bx-filter
+        table
+          thead
+            tr
+              th sender
+              th receiver
+              th date           
+              th money
+              th userName
+              th image      
+              th accept demand
+              th delete demand
+          tbody
+              tr
+                td
+                  each demand in demands
+                    tr
+                      td
+                        p= demand.sender 
+                      td
+                        p= demand.receiver
+                      td
+                        p= demand.date 
+                      td
+                        p= demand.money
+                      td 
+                        p= demand.userName     
+                      td
+                        a(href=`/admin/showpic/${demand.id}`) 
+                          button.btn(type='submit' class='btn btn-danger') show pic
+                        //- img(src=`data:image/jpeg;base64,${demand.imageData}`)
+                      td
+                        form(action=`/admin/accept-demand/${demand.id}`, method='post')
+                          button.btn(type='submit' class='btn btn-danger') accept                     
+                      td 
+                        form(action=`/admin/delete-demand/${demand.id}`, method='post')
+                          button.btn(type='submit' class='btn btn-danger') Delete
+    .table-data
+      .order
+        .head
+          h3  tansaction history
+          i.bx.bx-search
+          i.bx.bx-filter
+        table
+          thead
+            tr
+              th nameUser
+              th packageID
+              th responseCode           
+              th playerName
+              th operationId
+              th the date
+          tbody
+              tr
+                td
+                  each transation in transations
+                    tr
+                      td
+                        p= transaction.userName 
+                      td
+                        p= transaction.packageID
+                      td
+                        p= transaction.responseCode 
+                      td
+                        p= transaction.playerName
+                      td 
+                        p= transaction.operationId     
+                      td
+                        p= transation.createdAt
+script(src="/js/dashboard.js")

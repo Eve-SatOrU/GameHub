@@ -1,0 +1,33 @@
+meta(charset="UTF-8")
+meta(http-equiv="X-UA-Compatible", content="IE=edge")
+meta(name="viewport", content="width=device-width,initial-scale=1")
+title gaming 
+//  Page Icon 
+//- link(rel="shortcut icon", href="../images/heartbeat-solid.svg", type="../images/x-icon")
+//  font-awesome 
+link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css")
+//  Custom Css File Link 
+link(rel="stylesheet", href="../css/style.css")
+//  Header Section Starts 
+.header
+header.header.active(data-header)
+  .container
+    a.logo(href="#")
+    a.btn(href="/admin/register", data-btn) register now
+    button.nav-toggle-btn(aria-label="toggle menu", data-nav-toggler)
+      span.line.line-1
+      span.line.line-2
+      span.line.line-3
+//  Header Section End 
+.hero.has-before
+  .row
+    //- .image
+    //-   img(src="../images/Admin.svg", alt)
+    form.login-form(action="/admin/login", method="post")
+      h3#color login 
+      label.label(for="userName") userName
+      input.box(type="text", name="userName", placeholder="type your username", required)#username
+      label.label(for="userPassword") userPassword
+      input.box(type="password", name="userPassword", placeholder="type your password", required)#password
+      button.btn(type="submit") login
+

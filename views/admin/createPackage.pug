@@ -1,0 +1,101 @@
+meta(charset="UTF-8")
+meta(name="viewport", content="width=device-width,initial-scale=1")
+//  Boxicons 
+link(href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css", rel="stylesheet")
+//  My CSS 
+link(rel="stylesheet", href="/css/dashboard.css")
+title gaming
+//  SIDEBAR 
+section#sidebar
+  a.brand(href="#")
+    span.text gaming 
+  ul.side-menu.top
+    li.active
+      a(href="/admin/createPackage")
+        i.bx.bxs-dashboard
+        span.text create package 
+    li
+      a(href="/admin/dashboard")
+        i.bx.bxs-shopping-bag-alt
+        span.text Dashboard
+  ul.side-menu
+    li
+      a(href="/admin/profile")
+        i.bx.bxs-cog
+        span.text Profile
+    li
+      a.logout(href="/admin/logout")
+        i.bx.bxs-log-out-circle
+        span.text logout
+//  SIDEBAR 
+//  CONTENT 
+section#content
+  //  NAVBAR 
+  nav
+    i.bx.bx-menu
+    form(action="#")
+      .form-input
+        input(type="search", placeholder="Rechercher...")
+        button.search-btn(type="submit")
+          i.bx.bx-search
+    input#switch-mode(type="checkbox", hidden)
+    label.switch-mode(for="switch-mode") 
+    a.notification(href="#")
+      i.bx.bxs-bell
+      span.num 8
+    a.profile(href="#")
+      img(src="../images/adming.svg")
+      
+      
+  //  NAVBAR 
+  //  MAIN 
+  main
+    .head-title
+      .left
+        h1 create package
+        ul.breadcrumb
+          li
+            a(href="#") create  
+          li
+            i.bx.bx-chevron-right
+          li
+            a.active(href="#") create
+      a.btn-download(href="#")
+        i.bx.bxs-cloud-download
+        span.text download PDF
+    .table-data
+      .order
+        .head
+          h3 package
+          i.bx.bx-search
+          i.bx.bx-filter
+        table
+          tbody
+            form(action="/admin/create-package", method="POST")
+              tr
+                th  Name
+                td
+                  label(for="name")
+                  input.box(type="text", name="name", required)
+                tr
+                th description
+                td
+                  label(for="description")
+                  textarea.box(name="description", rows="4", required)
+                tr
+                th price
+                td
+                  label(for="price")
+                  input.box(type="number", name="price", step="0.01", required)
+                tr
+                th image
+                td 
+                  label(for="image") 
+                  input.box(type="text", name="image", required)
+                tr
+                th
+                td
+                  button.btn(type="submit") Create
+  //  MAIN 
+//  CONTENT 
+script(src="../js/dashboard.js")
